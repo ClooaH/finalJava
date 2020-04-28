@@ -12,11 +12,12 @@ class GridsCanvas extends Canvas implements Runnable{
     private int rowWid;
     private int cols;
     private JFrame frame;
-    private int fps = 30;
-    private int ups = 1;
+    private int fps = 1;
+    private int ups = 30;
     private boolean running = false;
     private Thread thread;
     private int count = 0;
+    private Road road;
 
     GridsCanvas(int w, int h, int r, int c) {
         setSize(width = w, height = h);
@@ -24,12 +25,14 @@ class GridsCanvas extends Canvas implements Runnable{
         cols = c;
         rowWid = width / (cols);
         rowHt = height / (rows);
+        road = new Road(width, height, rowWid, rowHt);
     }
 
     public synchronized void start() {
         running = true;
         thread = new Thread(this);
         thread.start();
+        road.setCourse();
     }
 
     private synchronized void stop() {
@@ -71,7 +74,9 @@ class GridsCanvas extends Canvas implements Runnable{
     private void update() {
     //yet to do
 
-        //green box pos Math.round((Math.random()*9))*rowWid, Math.round((Math.random()*9))*rowHt
+    }
+
+    public void getRandom() {
 
     }
 
@@ -96,14 +101,23 @@ class GridsCanvas extends Canvas implements Runnable{
         //refresh
         g.clearRect(0,0, width, height);
 
+        //background
+        g.setColor(green);
+        g.fillRect(0,0,800,600);
+
+        g.setColor(darkGray);
+        g.fillRect(0, road.getPosY(), 80, 60);
+
+        g.setColor(black);
+
         // draw the rows
         for (i = 0; i < rows; i++)
             g.drawLine(0, i * rowHt, width, i * rowHt);
 
         // draw the columns
-        int rowWid = width / (cols);
         for (i = 0; i < cols; i++)
             g.drawLine(i * rowWid, 0, i * rowWid, height);
+
 
     }
 }
@@ -111,7 +125,7 @@ class GridsCanvas extends Canvas implements Runnable{
 public class Main extends JFrame {
     GridsCanvas xyz;
     private Main() {
-        xyz = new GridsCanvas(600, 600, 20, 20);
+        xyz = new GridsCanvas(800, 600, 10, 10);
         add(xyz);
         pack();
     }
