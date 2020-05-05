@@ -33,6 +33,7 @@ class GridsCanvas extends Canvas implements Runnable{
         thread = new Thread(this);
         thread.start();
         road.setCourse();
+
     }
 
     private synchronized void stop() {
@@ -76,10 +77,6 @@ class GridsCanvas extends Canvas implements Runnable{
 
     }
 
-    public void getRandom() {
-
-    }
-
     private void draw() {
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
@@ -106,11 +103,11 @@ class GridsCanvas extends Canvas implements Runnable{
         g.fillRect(0,0,800,600);
 
         g.setColor(darkGray);
-        g.fillRect(0, road.getPosY(), 80, 60);
-
-        g.setColor(black);
-
+        for (i = 0; i < 10; i++) {
+            g.fillRect(road.getArrayX().get(i), road.getArrayY().get(i), 80, 60);
+        }
         // draw the rows
+        g.setColor(black);
         for (i = 0; i < rows; i++)
             g.drawLine(0, i * rowHt, width, i * rowHt);
 
