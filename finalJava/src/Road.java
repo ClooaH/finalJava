@@ -36,15 +36,21 @@ public class Road {
     public void setCourse() {
         posY = (int) Math.round(Math.random()*9)*rowHt;
         arrayY.add(posY);
-        arrayX.add(0);
-        while (posX != width - rowWid) {
-            posX = posX + rowWid;
-            arrayX.add(posX);
+        arrayX.add(posX);
+        posX = posX + rowWid;
+        arrayY.add(posY);
+        arrayX.add(posX);
+        posX = posX + rowWid;
+
+        for (int i = 1; i <= 5; i++) {
             posY = (int) Math.round(Math.random()*9)*rowHt;
             arrayY.add(posY);
+            arrayX.add(posX);
+            posX = posX + rowWid;
+            arrayY.add(posY);
+            arrayX.add(posX);
+            posX = posX + rowWid;
         }
-
-        Integer[] array = arrayY.toArray(new Integer[0]);
     }
 
     public ArrayList<Integer> getArrayY() {
