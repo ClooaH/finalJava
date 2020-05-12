@@ -103,7 +103,7 @@ class GridsCanvas extends Canvas implements Runnable{
         g.fillRect(0,0,800,600);
 
         g.setColor(darkGray);
-        for (i = 0; i < 10; i++) {
+        for (i = 0; i < road.getArrayXSize(); i++) {
             g.fillRect(road.getArrayX().get(i), road.getArrayY().get(i), 80, 60);
         }
         // draw the rows
