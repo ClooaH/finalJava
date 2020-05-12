@@ -46,21 +46,21 @@ public class Road {
             posY = (int) Math.round(Math.random()*9)*rowHt;
             arrayY.add(posY);
             arrayX.add(posX);
-            posX = posX + rowWid;
             int ynumber1 = arrayY.get(arrayY.size()-1);
             int ynumber2 = arrayY.get(arrayY.size()-2);
-            while (ynumber1 < ynumber2) {
-                arrayY.add(arrayY.size()-2, posY);
-                arrayX.add(arrayX.size()-2, posX);
-                posY = posY - 60;
+            while (ynumber2 > ynumber1) {
+                arrayY.add(arrayY.size()-1, ynumber2);
+                arrayX.add(arrayX.size()-1, posX);
+                posY = posY + 60;
                 ynumber2 = ynumber2 - 60;
             }
-            while (ynumber1 > ynumber2) {
-                arrayY.add(arrayY.size()-2, posY);
-                arrayX.add(arrayX.size()-2, posX);
-                posY = posY + 60;
+            while (ynumber2 < ynumber1) {
+                arrayY.add(arrayY.size()-1, ynumber2);
+                arrayX.add(arrayX.size()-1, posX);
+                posY = posY - 60;
                 ynumber2 = ynumber2 + 60;
             }
+            posX = posX + rowWid;
             arrayY.add(posY);
             arrayX.add(posX);
             posX = posX + rowWid;
