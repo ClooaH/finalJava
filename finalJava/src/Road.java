@@ -47,6 +47,20 @@ public class Road {
             arrayY.add(posY);
             arrayX.add(posX);
             posX = posX + rowWid;
+            int ynumber1 = arrayY.get(arrayY.size()-1);
+            int ynumber2 = arrayY.get(arrayY.size()-2);
+            while (ynumber1 < ynumber2) {
+                arrayY.add(arrayY.size()-2, posY);
+                arrayX.add(arrayX.size()-2, posX);
+                posY = posY - 60;
+                ynumber2 = ynumber2 - 60;
+            }
+            while (ynumber1 > ynumber2) {
+                arrayY.add(arrayY.size()-2, posY);
+                arrayX.add(arrayX.size()-2, posX);
+                posY = posY + 60;
+                ynumber2 = ynumber2 + 60;
+            }
             arrayY.add(posY);
             arrayX.add(posX);
             posX = posX + rowWid;
