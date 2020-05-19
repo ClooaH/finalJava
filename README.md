@@ -1,5 +1,7 @@
 # finalJava
 
+# OBS: Råkat göra en till finalJava inne i finalJava mappen. Ej den variant jag jobbar på.
+
 ### Tower Defense
 
 #### För mitt slutprojekt har jag tänkt mig att skapa en tower defense med hjälp av grafiskt gränssnitt.
