@@ -12,12 +12,13 @@ class GridsCanvas extends Canvas implements Runnable{
     private int rowWid;
     private int cols;
     private JFrame frame;
-    private int fps = 1;
-    private int ups = 30;
+    private int fps = 60;
+    private int ups = 60;
     private boolean running = false;
     private Thread thread;
     private int count = 0;
     private Road road;
+    private Enemy enemy;
 
     GridsCanvas(int w, int h, int r, int c) {
         setSize(width = w, height = h);
@@ -26,6 +27,7 @@ class GridsCanvas extends Canvas implements Runnable{
         rowWid = width / (cols);
         rowHt = height / (rows);
         road = new Road(width, height, rowWid, rowHt);
+        enemy = new Enemy(width, height, rowWid, rowHt, road.getArrayY(), road.getArrayX());
     }
 
     public synchronized void start() {
@@ -33,6 +35,7 @@ class GridsCanvas extends Canvas implements Runnable{
         thread = new Thread(this);
         thread.start();
         road.setCourse();
+        enemy.setStartValues();
 
     }
 
@@ -73,7 +76,9 @@ class GridsCanvas extends Canvas implements Runnable{
     }
 
     private void update() {
-    //yet to do
+
+    if (enemy.getPosX() != 800)
+    enemy.movement();
 
     }
 
@@ -102,6 +107,7 @@ class GridsCanvas extends Canvas implements Runnable{
         g.setColor(green);
         g.fillRect(0,0,800,600);
 
+        //draw road
         g.setColor(darkGray);
         for (i = 0; i < road.getArrayXSize(); i++) {
             g.fillRect(road.getArrayX().get(i), road.getArrayY().get(i), 80, 60);
@@ -115,6 +121,9 @@ class GridsCanvas extends Canvas implements Runnable{
         for (i = 0; i < cols; i++)
             g.drawLine(i * rowWid, 0, i * rowWid, height);
 
+        // draw enemy
+        g.setColor(orange);
+        g.fillOval(enemy.getPosX(), enemy.getPosY(), 30, 60);
 
     }
 }
