@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.sql.*;
+import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -79,7 +81,6 @@ class GridsCanvas extends Canvas implements Runnable{
 
     if (enemy.getPosX() != 800)
     enemy.movement();
-
     }
 
     private void draw() {
@@ -139,5 +140,35 @@ public class Main extends JFrame {
         Main m = new Main();
         m.setVisible(true);
         m.xyz.start();
+
+        try {
+            // Set up connection to database
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://" + DatabaseLoginData.DBURL + ":" + DatabaseLoginData.port + "/" + DatabaseLoginData.DBname +
+                            "? allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
+                    DatabaseLoginData.user, DatabaseLoginData.password);
+
+            // Setup statement
+            Statement stmt = conn.createStatement();
+            // Create query and execute
+            String strSelect = "select tag from user where id = " + 1;
+            System.out.println("The SQL statement is: " + strSelect + "\n");
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            // Loop through the result set and print
+
+            System.out.println("The records selected are:");
+            while (rset.next()) {
+                String body = rset.getString("body");
+                System.out.println(body);
+            }
+
+            // Close conn and stmt
+            conn.close();
+            stmt.close();
+        }
+        catch(SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 }
