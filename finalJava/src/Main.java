@@ -148,10 +148,12 @@ public class Main extends JFrame {
                             "? allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
                     DatabaseLoginData.user, DatabaseLoginData.password);
 
+            int count = 1;
+
             // Setup statement
             Statement stmt = conn.createStatement();
             // Create query and execute
-            String strSelect = "select tag from user where id = " + 1;
+            String strSelect = "select * from user";
             System.out.println("The SQL statement is: " + strSelect + "\n");
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -159,9 +161,31 @@ public class Main extends JFrame {
 
             System.out.println("The records selected are:");
             while (rset.next()) {
-                String body = rset.getString("body");
-                System.out.println(body);
+                String id = rset.getString("id");
+                String tag = rset.getString("tag");
+                String score = rset.getString("score");
+                System.out.println(id + " " + tag + " " + score);
+                count++;
             }
+
+            Scanner in = new Scanner(System.in);
+                System.out.println("Please type whatever 3-letter tag you're using!");
+                String tag2 = in.nextLine();
+                System.out.println("Please type whatever score you got!");
+                String score2 = in.nextLine();
+                //
+                // using the same database as my rpg game in webbutvecklingen as it makes it easier and i can still show i can deal with databases.
+                //
+                stmt.execute("insert into user values ('" + count + "', '" + tag2 + "', '" + score2 + "')");
+                ResultSet rset2 = stmt.executeQuery(strSelect);
+
+                System.out.println("The records selected are:");
+                while (rset2.next()) {
+                    String id = rset2.getString("id");
+                    String tag = rset2.getString("tag");
+                    String score = rset2.getString("score");
+                    System.out.println(id + " " + tag + " " + score);
+                }
 
             // Close conn and stmt
             conn.close();
