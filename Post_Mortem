@@ -1,0 +1,45 @@
+Slutprojekt Programmering
+Inledning
+Här beskriver du kortfattat arbetets syfte/mål, arbetssätt, genomförande.
+
+Syftet med detta arbetet var att jobba på något som skulle kunna bli ett fullt utvecklat tower defense spel som gick att spela, vilket jag inte hann färdigt med men det duger som det är. Jag ville bara se till att testa nya saker som att randomiza hur gången för fienden genererades och hur fienden sen följde den vägen. Genomförandet hände så att jag blev fast på vägen i majoriteten av tiden så då hann jag inte färdigt med det andra som behövdes. Hursom tycker jag det blev ganska finfint och att jag hade ett bra genomförande och arbetssätt genom detta projekt.
+
+Vad är det för något du ska utveckla, berätta om din inspiration och ideer.
+
+Tower defense spel var målet av min produkt. Att den inte skulle hinna komma dit var en självklarhet, men det var vägen dit som spelade roll. Min inspiration och ide kommer från den senare tvåan där jag hade börjat spela Bloons Tower Defense 6 och gillade själva konceptet.
+
+Bakgrund
+Här beskriver du den teknik du har använt och motiverar detta.
+
+Jag har använt tekniken av att använda ett GUI som hanterar och ritar grafik medan databas konnektionen sker genom konsollen. Detta var gjort simpelt p.g.a enkelheten av att jag använt dessa tekniker innan och de fungerar relativt felfritt. 
+
+Berätta om ditt planeringsarbete.
+
+Planeringsarbete var det inte mycket till. Det mesta av min tid blev spenderat på att försöka randomiza hur vägen genererades. Men jag hade inte någon orginell plan, det mesta jag tänkte på var att fixa en sak om lektionen, vilket det nu inte blev men men. Jag fick en fin slutprodukt som fyller viss funktion av vad jag ville från början så det är pretty cool.
+
+Redovisa din planering och dess delar.
+
+Som sagt, var inte mycket till planering. Ville bara få en sak om dagen gjord på ett ungefär men det blev ej så oturligt nog p.g.a randomizad väg för fienden som strulade för min hjärna.
+
+Tester och feedback arbete.
+
+Småvarningar som typosfel (inte egentligen typos) och andra smårekommendationer om att ändra typen eller fältet till att ha en annan egenskap än public t.ex. Annars, inga fel.
+
+Positiva erfarenheter
+Här beskriver du vad som har gått bra i ditt projekt och analyserar varför.
+
+Vad som gick bra var att få fienden att följa vägen som jag skapade. Det var väldigt enkelt eftersom att jag har 2 arrays med x och y värden. Det var extra bra mest troligt eftersom att jag just blev klar med random generationen av vägen och fick då börja på fiendens väg att gå.
+
+Negativa erfarenheter
+Här beskriver du det som du anser har gått mindre bra med ditt projekt och analyserar hur du kan undvika detta i framtida projekt.
+
+Vägen var extra jobbig, men inte så extremt mycket. Det tog bara tid att få allting att fungera med generationen som var det största problemet. Till slut fungerade allting och jag fick ut hur jag skulle göra, så genom denna lärdom om hur det fungerar med arrays för att storea värden som x,y så fick jag det enkelt att fungera efteråt.
+
+Sammanfattning
+Här redovisar du dina slutsatser, erfarenheter och lärdomar. Reflektera över din produkt och dess/dina utvecklingsmöjligheter.
+
+Jag lärde mig om att randomly generera genom att använda x,y värden storeade i en array, samt har jag lärt mig mer om den fantastiska saken som heter objektorienterad kod. Det känns som att jag verkligen har fått en bra känn på Java programmeringen av GUIs och objektorienterad kod. Min produkt dock kan behövas slipas mycket på. Vissa av dessa utvecklingsmöjligheter står i brädet, som t.ex economy, torn, runder etc etc. Dessutom behövs det att databasen ändras till en användarprofil som sparar runder osv.
+
+Vad kan vidareutvecklas och finns det utrymme att bygga vidare på projektet.
+
+Vidareutveckling kan göras på det mesta förutom väg generationen som är absolut på tiptop. Annat än det så se ovan för utvecklingsmöjligheterna i programmet. Produkten har inte kommit så långt, men den kan absolut göra det.
